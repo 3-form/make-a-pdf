@@ -31,9 +31,9 @@ pipeline {
       }
     }
 
-    stage("Deploy") {
-      echo 'Starting deploy...'
+    stage('Deploy') {
       steps {
+        echo 'Starting deploy...'
         sh '''
           export DOCKER_HOST=ssh://webmaster@192.168.42.79
 
