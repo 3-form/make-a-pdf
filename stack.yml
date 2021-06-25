@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+	make-a-pdf:
+		deploy:
+			replicas: 1
+			labels:
+				- traefik.enable=true
+				- traefik.docker.network=webgateway
+				- traefik.http.routers.make-a-pdf-redirect.rule=Host(`make-a-pdf.3-form.com`)
+				- traefik.http.routers.make-a-pdf-redirect.entrypoints=web
+				- traefik.http.routers.make-a-pdf-redirect.middlewares=redirect@file
+				- traefik.http.routers.make-a-pdf.rule=Host(`make-a-pdf.3-form.com`)
+				- traefik.http.routers.make-a-pdf.entrypoints=websecure
+				- traefik.http.routers.make-a-pdf.tls=true
+				- traefik.http.services.make-a-pdf.loadbalancer.server.port=5488
+		image: "registry.3-form.com/make-a-pdf:${DOCKER_IMAGE_TAG:-latest}"
+		networks:
+			- webgateway
+		secrets:
+			- source: jsreport.config.json
+			  target: /app/jsreport.config.json
+
+networks:
+	webgateway:
+		external: true
+
+secrets:
+	jsreport.config.json:
+		name: make-a-pdf.config.json_2021-06-25
+		external: true
