@@ -35,7 +35,7 @@ pipeline {
       steps {
         echo 'Starting deploy...'
         sh '''
-          export DOCKER_HOST=ssh://webmaster@192.168.42.79
+          export DOCKER_HOST=ssh://webmaster@192.168.31.71
 
           docker stack deploy -c ./stack.yml make-a-pdf
         '''
