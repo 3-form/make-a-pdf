@@ -20,6 +20,7 @@ services:
   image: "registry.3-form.com/make-a-pdf:${DOCKER_IMAGE_TAG:-latest}"
   networks:
    - webgateway
+   - mysql-db-net
   secrets:
    - source: jsreport.config.json
      target: /app/jsreport.config.json
@@ -27,8 +28,10 @@ services:
 networks:
  webgateway:
   external: true
+ mysql-db-net:
+  external: true
 
 secrets:
  jsreport.config.json:
-  name: make-a-pdf.config.json_2021-06-25
+  name: make-a-pdf.config.json_2021-10-04
   external: true
