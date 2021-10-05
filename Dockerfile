@@ -4,7 +4,6 @@ COPY --chown=jsreport:jsreport server.js /app/server.js
 COPY --chown=jsreport:jsreport data /app/data
 
 RUN npm i --save \
-  jsreport-fs-store \
-  jsreport-fs-store-aws-s3-persistence
+  jsreport-fs-store
 
 CMD ["bash", "/app/run.sh"]
