@@ -24,6 +24,11 @@ services:
   secrets:
    - source: jsreport.config.json
      target: /app/jsreport.config.json
+  volumes:
+   - make-a-pdf-persisted-data:/app/data
+
+volumes:
+ make-a-pdf-persisted-data: {}
 
 networks:
  webgateway:
@@ -33,5 +38,5 @@ networks:
 
 secrets:
  jsreport.config.json:
-  name: make-a-pdf.config.json_2021-10-05_1
+  name: make-a-pdf.config.json_2021-10-05_2
   external: true
