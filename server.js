@@ -1,6 +1,6 @@
 const jsreport = require('jsreport')();
 
-const beforeRender = (req, res, done) => {
+function beforeRender(req, res, done) {
 	// Set req.data.template.content to true if req.data.template.content is not
 	// given but the request is otherwise to have chrome-pdf take a screenshot of
 	// a given url.

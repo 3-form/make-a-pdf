@@ -38,5 +38,5 @@ networks:
 
 secrets:
  jsreport.config.json:
-  name: make-a-pdf.config.json_2021-10-05_3
+  name: make-a-pdf.config.json_2021-10-12
   external: true
