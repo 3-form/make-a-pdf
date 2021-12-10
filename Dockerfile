@@ -5,4 +5,6 @@ COPY --chown=jsreport:jsreport data /app/data
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=
 
+RUN npm i --save
+
 CMD ["bash", "/app/run.sh"]
