@@ -1,15 +1,15 @@
 const jsreport = require('jsreport')();
 
-function beforeRender(req, res, done) {
-	// Set req.data.template.content to true if req.data.template.content is not
-	// given but the request is otherwise to have chrome-pdf take a screenshot of
-	// a given url.
-	if (req.data.template) {
-		req.data.template.content =
-			!req.data.template.content &&
-			!!req.data.template.chrome &&
-			!!req.data.template.chrome.url ||
-			req.data.template.content;
+function beforeRender(request, response, done) {
+	// Set request.data.template.content to true if request.data.template.content
+	// is not given but the request is otherwise to have chrome-pdf take a
+	// screenshot of a given url.
+	if (request.data.template) {
+		request.data.template.content =
+			!request.data.template.content &&
+			!!request.data.template.chrome &&
+			!!request.data.template.chrome.url ||
+			request.data.template.content;
 	}
 
 	done();
